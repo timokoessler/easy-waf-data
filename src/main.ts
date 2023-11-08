@@ -8,7 +8,7 @@ import ora from 'ora';
     const start = Date.now();
     const directory = 'data/crawler-ips'; // Without trailing slash
 
-    if(!existsSync(directory)){
+    if (!existsSync(directory)) {
         try {
             mkdirSync(directory, { recursive: true });
         } catch (err) {
@@ -47,7 +47,20 @@ import ora from 'ora';
     // https://raw.githubusercontent.com/duckduckgo/duckduckgo-help-pages/master/_docs/results/duckduckbot.md
     const duckduckgoSpinner = ora('Updating DuckDuckGo IP list').start();
     try {
-        const duckduckgoIPs = ['20.191.45.212', '40.88.21.235', '40.76.173.151', '40.76.163.7', '20.185.79.47', '52.142.26.175', '20.185.79.15', '52.142.24.149', '40.76.162.208', '40.76.163.23', '40.76.162.191', '40.76.162.247'];
+        const duckduckgoIPs = [
+            '20.191.45.212',
+            '40.88.21.235',
+            '40.76.173.151',
+            '40.76.163.7',
+            '20.185.79.47',
+            '52.142.26.175',
+            '20.185.79.15',
+            '52.142.24.149',
+            '40.76.162.208',
+            '40.76.163.23',
+            '40.76.162.191',
+            '40.76.162.247',
+        ];
         ipList.push(...duckduckgoIPs);
         writeFileSync(directory + '/duckduckgo.json', JSON.stringify(duckduckgoIPs));
         duckduckgoSpinner.succeed(`Saved ${duckduckgoIPs.length} DuckDuckGo IP ranges`);
@@ -118,12 +131,12 @@ import ora from 'ora';
     }
 
     const savingSpinner = ora('Saving').start();
-    if(facebookIPs.length){
+    if (facebookIPs.length) {
         ipList.push(...facebookIPs);
         writeFileSync(directory + '/facebook.json', JSON.stringify(facebookIPs));
     } else {
         console.error('Facebook IPs not found in origin ASNs. Trying to read old from file.');
-        if(existsSync(directory + '/facebook.json')){
+        if (existsSync(directory + '/facebook.json')) {
             try {
                 const facebookIPs = JSON.parse(readFileSync(directory + '/facebook.json').toString());
                 ipList.push(...facebookIPs);
@@ -132,12 +145,12 @@ import ora from 'ora';
             }
         }
     }
-    if(twitterIPs.length){
+    if (twitterIPs.length) {
         ipList.push(...twitterIPs);
         writeFileSync(directory + '/twitter.json', JSON.stringify(twitterIPs));
     } else {
         console.error('Twitter IPs not found in origin ASNs. Trying to read old from file.');
-        if(existsSync(directory + '/twitter.json')){
+        if (existsSync(directory + '/twitter.json')) {
             try {
                 const twitterIPs = JSON.parse(readFileSync(directory + '/twitter.json').toString());
                 ipList.push(...twitterIPs);

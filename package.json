@@ -1,19 +1,21 @@
 {
-  "name": "easy-waf-data",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "start": "npx esbuild ./src/main.ts --bundle --platform=node --outfile=dist/main.js && node dist/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Timo Kössler",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "esbuild": "^0.18.11",
-    "ora": "^6.3.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20.3.3"
-  }
+    "name": "easy-waf-data",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "start": "tsup && node dist/main.js",
+        "build": "tsup",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Timo Kössler",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "ora": "^7.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.3.3",
+        "prettier": "^3.0.3",
+        "tsup": "^7.2.0"
+    }
 }
