@@ -1,6 +1,7 @@
 import { httpGET, parsePrefixList } from './utils.js';
 import { writeFileSync, existsSync, readFileSync, mkdirSync } from 'node:fs';
 import ora from 'ora';
+import { default as duckduckgoIPs } from './duckduckgoips.js';
 
 (async () => {
     const ipList: string[] = [];
@@ -47,29 +48,6 @@ import ora from 'ora';
     // https://raw.githubusercontent.com/duckduckgo/duckduckgo-help-pages/master/_docs/results/duckduckbot.md
     const duckduckgoSpinner = ora('Updating DuckDuckGo IP list').start();
     try {
-        const duckduckgoIPs = [
-            '20.191.45.212',
-            '40.88.21.235',
-            '40.76.173.151',
-            '40.76.163.7',
-            '20.185.79.47',
-            '52.142.26.175',
-            '20.185.79.15',
-            '52.142.24.149',
-            '40.76.162.208',
-            '40.76.163.23',
-            '40.76.162.191',
-            '40.76.162.247',
-            '40.80.242.63',
-            '20.12.141.99',
-            '20.49.136.28',
-            '51.116.131.221',
-            '51.107.40.209',
-            '20.40.133.240',
-            '20.50.168.91',
-            '51.120.48.122',
-            '20.193.45.113',
-        ];
         ipList.push(...duckduckgoIPs);
         writeFileSync(directory + '/duckduckgo.json', JSON.stringify(duckduckgoIPs));
         duckduckgoSpinner.succeed(`Saved ${duckduckgoIPs.length} DuckDuckGo IP ranges`);
