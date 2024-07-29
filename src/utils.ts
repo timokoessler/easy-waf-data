@@ -1,34 +1,16 @@
-import https from 'node:https';
-
 /**
  * Simple Node.js HTTP GET request without any dependencies
  */
-export function httpGET(url: string): Promise<string> {
-    return new Promise((resolve, reject) => {
-        https
-            .get(url, { timeout: 5000 }, (res) => {
-                let data = '';
-                res.on('data', (chunk) => {
-                    data += chunk;
-                });
-                res.on('error', reject);
-                res.on('end', () => {
-                    const { statusCode } = res;
-                    if (typeof statusCode !== 'number') {
-                        reject(new Error('Invalid status code'));
-                        return;
-                    }
-                    const validResponse = statusCode >= 200 && statusCode <= 299;
-                    if (validResponse) {
-                        resolve(data);
-                        return;
-                    }
-                    reject(new Error(`Request failed. Status: ${statusCode} Url: ${url}`));
-                });
-            })
-            .on('error', reject)
-            .end();
-    });
+export async function get(url: string, response: 'json' | 'text') {
+    const res = await fetch(url, { signal: AbortSignal.timeout(30000) });
+    if (!res.ok) {
+        throw new Error(`Request failed. Status: ${res.status} Url: ${url}`);
+    }
+    if (response === 'json') {
+        return await res.json();
+    }
+
+    return await res.text();
 }
 
 /**

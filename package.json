@@ -12,10 +12,10 @@
     "license": "MIT",
     "private": true,
     "dependencies": {
-        "ora": "^7.0.1"
+        "ora": "^8.0.1"
     },
     "devDependencies": {
-        "@types/node": "^20.3.3",
+        "@types/node": "^22.0.0",
         "prettier": "^3.0.3",
         "tsup": "^8.0.1",
         "typescript": "^5.3.3"

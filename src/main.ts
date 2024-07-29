@@ -1,4 +1,4 @@
-import { httpGET, parsePrefixList } from './utils.js';
+import { get, parsePrefixList } from './utils.js';
 import { writeFileSync, existsSync, readFileSync, mkdirSync } from 'node:fs';
 import ora from 'ora';
 import { default as duckduckgoIPs } from './duckduckgoips.js';
@@ -21,8 +21,7 @@ import { default as duckduckgoIPs } from './duckduckgoips.js';
     // Google
     const googleSpinner = ora('Updating Google IP list').start();
     try {
-        const result = await httpGET('https://www.gstatic.com/ipranges/goog.json');
-        const json = JSON.parse(result);
+        const json = await get('https://www.gstatic.com/ipranges/goog.json', 'json');
         const googleIPs = parsePrefixList(json.prefixes);
         ipList.push(...googleIPs);
         writeFileSync(directory + '/google.json', JSON.stringify(googleIPs));
@@ -34,8 +33,7 @@ import { default as duckduckgoIPs } from './duckduckgoips.js';
     // Bing
     const bingSpinner = ora('Updating Bing IP list').start();
     try {
-        const result = await httpGET('https://www.bing.com/toolbox/bingbot.json');
-        const json = JSON.parse(result);
+        const json = await get('https://www.bing.com/toolbox/bingbot.json', 'json');
         const bingIPs = parsePrefixList(json.prefixes);
         ipList.push(...bingIPs);
         writeFileSync(directory + '/bing.json', JSON.stringify(bingIPs));
@@ -79,7 +77,7 @@ import { default as duckduckgoIPs } from './duckduckgoips.js';
 
     const ipV4ASNSpinner = ora('Downloading all IPv4 prefixes and their origin ASNs').start();
     try {
-        const asnsIPResult = await httpGET('https://thyme.apnic.net/current/data-raw-table');
+        const asnsIPResult = await get('https://thyme.apnic.net/current/data-raw-table', 'text');
         const asnsIPv4 = asnsIPResult.split('\n');
         for (const line of asnsIPv4) {
             const parts = line.split(/\s(.*)/);
@@ -99,7 +97,7 @@ import { default as duckduckgoIPs } from './duckduckgoips.js';
 
     const ipV6ASNSpinner = ora('Downloading all IPv6 prefixes and their origin ASNs').start();
     try {
-        const asnsIPResult = await httpGET('https://thyme.apnic.net/current/ipv6-raw-table');
+        const asnsIPResult = await get('https://thyme.apnic.net/current/ipv6-raw-table', 'text');
         const asnsIPv6 = asnsIPResult.split('\n');
         for (const line of asnsIPv6) {
             const parts = line.split(/\s(.*)/);
