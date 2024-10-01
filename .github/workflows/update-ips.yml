@@ -11,15 +11,18 @@ jobs:
     update:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - name: Use Node.js 22
+            - name: Checkout Repository ⬇️
+              uses: actions/checkout@v4
+            - name: Use Node.js 22 🔥
               uses: actions/setup-node@v4
               with:
                   node-version: 22.x
                   cache: 'npm'
-            - run: npm ci
-            - run: npm start
-            - name: Commit report
+            - name: Install dependencies 📦
+              run: npm ci
+            - name: Run script 🚀
+              run: npm start
+            - name: Commit and push changes ⬆️
               run: |
                   git config --local user.email "action@github.com"
                   git config --local user.name "GitHub Action"
