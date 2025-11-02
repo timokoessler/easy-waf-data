@@ -12,16 +12,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repository ⬇️
-              uses: actions/checkout@v4
-            - name: Use Node.js 22 🔥
-              uses: actions/setup-node@v4
+              uses: actions/checkout@v5
+            - name: Use Node.js 24 🔥
+              uses: actions/setup-node@v6
               with:
-                  node-version: 22.x
+                  node-version: 24.x
                   cache: 'npm'
             - name: Install dependencies 📦
               run: npm ci
             - name: Run script 🚀
-              run: npm start
+              run: node --run start
             - name: Commit and push changes ⬆️
               run: |
                   git config --local user.email "action@github.com"

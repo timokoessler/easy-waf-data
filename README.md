@@ -15,40 +15,40 @@ The data is only used for the whitelist of the Fake Crawler module, so adding ma
 
 ### Google
 
--   Documentation: [Check Googlebot and other Google crawlers](https://support.google.com/webmasters/answer/80553)
--   Direct link to JSON: [Google IP ranges](https://www.gstatic.com/ipranges/goog.json)
+- Documentation: [Check Googlebot and other Google crawlers](https://support.google.com/webmasters/answer/80553)
+- Direct link to JSON: [Google IP ranges](https://www.gstatic.com/ipranges/goog.json)
 
 ### Bing
 
--   Direct link to JSON: [Bing IP ranges](https://www.bing.com/toolbox/bingbot.json)
+- Direct link to JSON: [Bing IP ranges](https://www.bing.com/toolbox/bingbot.json)
 
 ### Facebook
 
--   Documentation: [Facebook Crawler](https://developers.facebook.com/docs/sharing/webmasters/crawler/)
--   IP ranges are scraped from BGP Routing Table Analysis
+- Documentation: [Facebook Crawler](https://developers.facebook.com/docs/sharing/webmasters/crawler/)
+- IP ranges are scraped from BGP Routing Table Analysis
 
 ### Twitter
 
--   Documentation: [Twitterbot](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/troubleshooting-cards)
--   IP ranges are scraped from BGP Routing Table Analysis
+- Documentation: [Twitterbot](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/troubleshooting-cards)
+- IP ranges are scraped from BGP Routing Table Analysis
 
 ### DuckDuckGo
 
--   Documentation: [Is DuckDuckBot related to DuckDuckGo?](https://raw.githubusercontent.com/duckduckgo/duckduckgo-help-pages/master/_docs/results/duckduckbot.md)
+- Documentation: [Is DuckDuckBot related to DuckDuckGo?](https://raw.githubusercontent.com/duckduckgo/duckduckgo-help-pages/master/_docs/results/duckduckbot.md)
 
 ### Pinterest
 
--   Documentation: [Pinterest Crawlers](https://help.pinterest.com/en/business/article/pinterest-crawler)
+- Documentation: [Pinterest Crawlers](https://help.pinterest.com/en/business/article/pinterest-crawler)
 
 ### BGP Routing Table Analysis
 
--   Website: [BGP Routing Table Analysis](https://thyme.apnic.net/)
--   Direct link to IPv4 ranges: [IPv4 Prefixes](https://thyme.apnic.net/current/data-raw-table)
--   Direct link to IPv6 ranges: [IPv6 Prefixes](https://thyme.apnic.net/current/ipv6-raw-table)
+- Website: [BGP Routing Table Analysis](https://thyme.apnic.net/)
+- Direct link to IPv4 ranges: [IPv4 Prefixes](https://thyme.apnic.net/current/data-raw-table)
+- Direct link to IPv6 ranges: [IPv6 Prefixes](https://thyme.apnic.net/current/ipv6-raw-table)
 
 ## Contact
 
 If a public GitHub issue or discussion is not the right choice for your concern, you can contact me directly:
 
--   E-Mail: [info@timokoessler.de](mailto:info@timokoessler.de)
--   My Website: [timokoessler.de](https://timokoessler.de)
+- E-Mail: [info@timokoessler.de](mailto:info@timokoessler.de)
+- My Website: [timokoessler.de](https://timokoessler.de)
